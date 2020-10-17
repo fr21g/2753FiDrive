@@ -5,52 +5,62 @@ include_once("estructura/cabecera.php");
 //include_once("estructura/menu.php");
 ?>
 
-<form  id="amarchivo" name="amarchivo" method="POST" data-toggle="validator">
-<table>
+<form class="needs-validation" id="amarchivo" name="amarchivo" action="accion_subirArchivo.php" enctype="multipart/form-data" method="POST" data-toggle="validator" novalidate>
+<div class="row">
 
-<tr>
-<td>Nombre</td>
-<td><input class="form-control" id="nombre" name="nombre" type=text placeholder=1234.png value="1234.png" required></td>
-</tr>
 
-<tr>
-<td>Descripcion</td>
-<td><input class="form-control" id="descripcion" name="descripcion" type=text required></td>
-</tr>
+</div>
+<div class="col-md-6 mb-3">
+<input class="form-control" id="subir" name="subir" type="file" onchange="checkbox()" required>
+</div>
 
-<tr>
-<td><br>Usuario</td>
-<td><br><select>
+<div class="col-md-6 mb-3">
+<label name="nombre" class="control-label">Nombre</label>
+<input class="form-control" id="nombre" name="nombre" type="text" placeholder=1234.png  required>
+</div>
+
+<div class="col-md-6 mb-3" >
+<label name="descripcion" class="control-label">Descripcion </label>
+<br><textarea name="decripcion" class="form-control">Esta es una descripción genérica, si lo necesita la puede cambiar.</textarea>
+
+</div>
+
+<div class="col-md-4 mb-3">
+<label name="usuario" class="control-label">Usuario</label>
+<select>
 <option>Administrador
 <option>Visitante
 <option>FLOR
-</select></td>
-</tr>
+</select>
+</div>
 
-<tr>
-<td>Tipo de Archivo</td>
-<td><br>
-<input type="checkbox" id="imagen" value="first_checkbox">  imagen
+
+<div class="col-md-5 mb-3">
+<label name="tipo" class="control-label">Tipo de Archivo</label>
+<br>
+<input type="checkbox" id="imagen" value="first_checkbox" >  imagen
 <br><input type="checkbox" id="zip" value="first_checkbox">  .zip
 <br><input type="checkbox" id="doc" value="first_checkbox">  .doc
 <br><input type="checkbox" id="pdf" value="first_checkbox">  .pdf
-<br><input type="checkbox" id="xls" value="first_checkbox">  .xls</td>
-</tr>
+<br><input type="checkbox" id="xls" value="first_checkbox">  .xls
+</div>
+<div class="col-md-5 mb-3">
+<label name="pass" class="control-label">Modificar Archivo?</label>
 
-<tr>
-<td><br>Clave de Archivo</td>
-<td><br><input type="password" id="clave" name="clave"></td>
-</tr>
-
-<tr>
-
-<td><br><input id="btn_amarchivo"  name="btn_amarchivo" type="submit" value="Continuar"></td>
-</tr>
-
-</table>
+<input type="checkbox" id="pass" value="first_checkbox" onchange="verpass()">  
+</div>
+<div id="verclave" class="col-md-6 mb-3" style="display:none;">
+<input type="password" id="clave" name="clave" onchange="verificarPass()" >
+</div>
+<div class="col-md-6 mb-3"></div>
+<div class="col-md-6 mb-3">
+<input id="btn_amarchivo"  name="btn_amarchivo" type="submit" value="Continuar">
+</div>
 
 
 
+
+</div>
 </form>
 
 
